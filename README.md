@@ -52,7 +52,8 @@ The output is displayed in a read-only field.
 
 How to handle user input and display output
 
-Author
+**Author**
 
-Arun Kumar G
-Final Year Electrical and Electronics Engineering Student
+Arun Kumar G | 
+Final Year Electrical and Electronics Engineering Student | 
+Mepco Schlenk Engineering College,Sivakasi.
