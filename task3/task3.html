@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<link rel="icon" href="C:\Users\arunk\OneDrive\Documents\task3\favicon.png">
+<style>
+	.to{
+		font-size: 20px;
+		align-items: center;
+		padding-top: 5px;
+		}
+	.label{
+		font-size: 16px;
+		margin-bottom: 5px;
+		}
+	p{
+		margin: 0px 0px 10px 0px;
+		background-color: blue;
+		color: white;
+		padding: 10px;
+		border-radius: 10px 10px 0px 0px;
+		font-size: 20px;
+	}
+	body{
+		font-family: Arial, sans-serif;
+		}
+	.container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #f0f0f0;
+		}
+	.outer{
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: white;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+	.inner{
+		display: flex;
+		gap: 10px;
+		margin-bottom: 10px;
+		padding: 1px;
+		border-radius: 5px;
+		}
+	.convert{
+		text-align: center;
+		padding: auto;
+		background-color: #4CAF50;
+		color: black;
+		border-radius: 5px;
+		cursor: pointer;
+		}
+</style>
+<script>
+	function inputfield(){
+		var choice = document.getElementById("choice").value;
+		var choice2 = document.getElementById("choice2").value;
+		var input = parseFloat(document.getElementById("inputfield").value);
+		var output;
+		if((choice === "Celcius")&&(choice2 === "Fahrenheit")){
+			output = (input * 9/5) + 32; // Convert Celsius to Fahrenheit
+		}
+		else if((choice === "Fahrenheit")&&(choice2 === "Celcius")){
+			output = (input - 32) * 5/9; // Convert Fahrenheit to Celsius
+		}
+		else if((choice === "Kelvin")&&(choice2 === "Celcius")){
+			output = input - 273.15; // Convert Kelvin to Celsius
+		}
+		else if((choice === "Celcius")&&(choice2 === "Kelvin")){
+			output = input + 273.15; // Convert Celsius to Kelvin
+		}
+		else if((choice === "Fahrenheit")&&(choice2 === "Kelvin")){
+			output = (input - 32) * 5/9 + 273.15; // Convert Fahrenheit to Kelvin
+		}
+		else if((choice === "Kelvin")&&(choice2 === "Fahrenheit")){
+			output = (input - 273.15) * 9/5 + 32; // Convert Kelvin to Fahrenheit
+		} 
+		else {
+			output = "Please select different units";
+		}
+		document.getElementById("outputfield").value = output;
+	}
+	window.onload = function(){
+		document.getElementById("button").onclick = inputfield;
+	};
+	function resetFields(){
+		document.getElementById("choice").value = "none";
+		document.getElementById("inputfield").value = "";
+		document.getElementById("outputfield").value = "";
+	}
+</script>
+<title>Temperature Converter</title>
+<body>
+<div class="container">
+	<div class="outer">
+		<p>Temperature Converter</p>
+		<div class="inner">
+			<select for="Unit" id="choice">
+			<option value="none">select</option>
+			<option value="Celcius">Celcius</option>
+			<option value="Fahrenheit">Fahrenheit</option>
+			<option value="Kelvin">Kelvin</option>
+			</select>
+			<label for="Unit" class="to">to</label>
+			<select for="Unit" id="choice2">
+			<option value="none">select</option>
+			<option value="Fahrenheit">Fahrenheit</option>
+			<option value="Celcius">Celcius</option>
+			<option value="Kelvin">Kelvin</option>
+			</select>
+		</div>
+		<div class="label">
+			<label for="inputfield">Value to Convert:</label>
+		</div>
+		<div class="inner">
+			<input type="number" class="inner" id="inputfield" />
+		</div>
+		<div class="label">
+			<label for="outputfield">Answer:</label>
+		</div>
+		<div class="inner">
+			<input type="text" class="inner" id="outputfield" readonly />
+		</div>
+		<div class="convert">
+			<button id="button" class="convert">Convert</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>
